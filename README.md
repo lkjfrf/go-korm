@@ -58,6 +58,12 @@ model.Data.Eid = 920809
 model.Get(db, 0)
 ```
 
+#### 📖 Get all from database
+```go
+//var result []Employee
+result := model.GetAll(db)
+```
+
 #### 📖 Update to database
 ```go
 model.Data.Eid = 920809
