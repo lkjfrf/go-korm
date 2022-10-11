@@ -2,7 +2,7 @@
 Golang struct base orm model library
 
 
-## Concept
+## 💡 Concept
 <p align="center">
 <b>korm</b> is an <a href="https://sequelize.org/">Sequrlize</a> / <a href="https://hibernate.org/">Hibernate</a> inspired 'half' object-relational mapping.<br>
 'Half' mean we do not control database connection <b>for now</b>.<br>
@@ -15,32 +15,32 @@ Main difference in korm is that support <code>.Create() .Get() .Insert() .Update
 
 ## 🛠 How to use
 
-#### Pre steps
-##### 1) Create Database connection (for pass it to korm)
-```go
-db, _ := sql.Open("mysql", "root:password@tcp(localhost:3306)/schema")
-```
-##### 2) Define struct as database model
-```go
-type Employee struct {
-    Eid int32 `korm:"integer"`
-    Name string `korm:"varchar(100)"`
-    Team string `korm:"varchar(30)"`
-}
-```
-##### 3) Create korm model based on 2)
-```go
-model := korm.NewModel[Employee]
-```
+#### 📖 Pre steps
+- Step 1 : Create Database connection (for pass it to korm)
+    ```go
+    db, _ := sql.Open("mysql", "root:password@tcp(localhost:3306)/schema")
+    ```
+- Step 2 : Define struct as database model
+    ```go
+    type Employee struct {
+        Eid int32 `korm:"integer"`
+        Name string `korm:"varchar(100)"`
+        Team string `korm:"varchar(30)"`
+    }
+    ```
+- Step 3 : Create korm model based on step 2
+    ```go
+    model := korm.NewModel[Employee]
+    ```
 
-#### Create Table
+#### 📖 Create Table
 ```go
 // korm use first struct field for primary key by default
 // Second parameter : set primary key or not
 model.CreateTable(db, true)
 ```
 
-#### Insert into Database
+#### 📖 Insert into database
 ```go
 model.Data.Eid = 920809
 model.Data.Name = "Abbie Oh"
@@ -49,7 +49,7 @@ model.Data.Team = "Dev Team 1"
 model.Insert(db)
 ```
 
-#### Get From Database
+#### 📖 Get from database
 ```go
 model.Data.Eid = 920809
 
@@ -58,7 +58,7 @@ model.Data.Eid = 920809
 model.Get(db, 0)
 ```
 
-#### Update to Database
+#### 📖 Update to database
 ```go
 model.Data.Eid = 920809
 model.Data.Team = "Dev Team 2"
@@ -68,7 +68,7 @@ model.Data.Team = "Dev Team 2"
 model.Update(db, 2)
 ```
 
-#### Delete From Database
+#### 📖 Delete from database
 ```go
 model.Data.Eid = 920809
 
