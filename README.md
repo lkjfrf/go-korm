@@ -20,7 +20,7 @@ Main difference in korm is that support <code>.Create() .Get() .Insert() .Update
     ```go
     db, _ := sql.Open("mysql", "root:password@tcp(localhost:3306)/schema")
     ```
-- Step 2 : Define struct as database model
+- Step 2 : Define struct as database model (using korm tag)
     ```go
     type Employee struct {
         Eid int32 `korm:"integer"`
